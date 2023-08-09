@@ -12,10 +12,11 @@ class Main_page(Base):
     login_window = "(//div[@class='profile_block__login'])[2]"
     user_name = "//input[@id='auth_l']"
     password = "//input[@id='auth_p']"
-    city_button = ""
-    login_button = ""
-    catalog_button = ""
-    assesories_button = ""
+    city_button = "//span[@class='site_header__city_selector_text']"
+    city_window = "//input[@name = 'search_city']"
+    login_button = "//input[@id = 'submitLogin']"
+    catalog_button = "//div[contains(@class,'button_clear white_on_transparent')]"
+    assesories_button = "(//a[@data-url='kompyuternye_komplektyyuschie']//span)[2]"
 
 
 
@@ -24,5 +25,17 @@ class Main_page(Base):
 
     def get_login_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_window)))
-
-
+    def get_user_name(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
+    def get_password(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password)))
+    def get_city_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_button)))
+    def get_login_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
+    def get_catalog_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.catalog_button)))
+    def get_asessories_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.assesories_button))
+    def get_city_window(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_window))
