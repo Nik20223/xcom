@@ -9,7 +9,7 @@ class Main_page(Base):
         self.driver = driver
 
     # Locators
-    login_window = "(//div[@class='profile_block__login'])[2]"
+    login_window = "//div[@onclick='_popup.login()']"
     user_name = "//input[@id='auth_l']"
     password = "//input[@id='auth_p']"
     city_button = "//span[@class='site_header__city_selector_text']"
@@ -24,7 +24,7 @@ class Main_page(Base):
     # Getters
 
     def get_login_window(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_window)))
+        return driver.find_element(By.XPATH, self.assesories_button)
     def get_user_name(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
     def get_password(self):
@@ -36,6 +36,14 @@ class Main_page(Base):
     def get_catalog_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.catalog_button)))
     def get_asessories_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.assesories_button))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.assesories_button)))
     def get_city_window(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_window))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_window)))
+
+
+    # Actions
+
+    def login_window_click(self):
+        return get_login_window().click()
+    def city_button_click(self):
+        return get_city_button().click()
