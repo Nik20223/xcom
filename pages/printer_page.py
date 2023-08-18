@@ -49,8 +49,8 @@ class Printer_page(Base):
     # Actions
     action = ActionChains(Base)
 
-    # def login_window_click(self):
-    #     self.get_login_window().click()
+    def printers_click(self):
+        self.get_printers_href().click()
     # def user_name_send(self):
     #     self.get_user_name().send_keys('sdfsdf@tih.ru')
     # def password_window(self):
@@ -59,5 +59,5 @@ class Printer_page(Base):
     #     self.get_password().send_keys('nikita'+'qa')
 
     def printers_chpu_insight(self):
-        self.action.move_to_element(printers_and_chpu_button)
-
+        self.action.move_to_element(self.get_printers_href())
+    #
