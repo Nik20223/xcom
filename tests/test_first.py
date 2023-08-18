@@ -5,6 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.main_page import Main_page
 from pages.login_page import Login_page
+from pages.printer_page import Printer_page
 from selenium.webdriver.chrome.service import Service
 
 options = webdriver.ChromeOptions()
@@ -24,6 +25,8 @@ tool.password_send()
 # print("login click")
 tool.login_click()
 # print("login send")
+tool = Printer_page(driver)
+tool.printers_chpu_insight()
 # time.sleep(5)
 # tool.password_window()
 # print("Click password")
