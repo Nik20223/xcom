@@ -1,18 +1,37 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.main_page import Main_page
+from pages.login_page import Login_page
 from selenium.webdriver.chrome.service import Service
-class Test_first():
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("detach", True)
-    service = Service(executable_path='/home/user/PycharmProjects/xcom/utilities/chromedriver')
-    driver = webdriver.Chrome(options=options, service=service)
-    base_url = 'https:\\xcom-shop.ru'
-    driver.set_window_size(1920, 1080)
-    driver.get(base_url)
-    # driver.maximize_window()
 
-test_open_login = Main_page(driver)
-test_open_login.login_window_click()
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+
+service = Service(executable_path='/home/user/PycharmProjects/xcom/utilities/chromedriver')
+driver = webdriver.Chrome(options=options, service=service)
+base_url = 'https://supereyes.ru/'
+
+driver.get(base_url)
+driver.maximize_window()
+tool = Main_page(driver)
+tool.login_window_click()
+tool = Login_page(driver)
+tool.user_name_send()
+tool.password_send()
+# print("login click")
+tool.login_click()
+# print("login send")
+# time.sleep(5)
+# tool.password_window()
+# print("Click password")
+# tool.password_send()
+# time.sleep(3)
+# print("Send password")
+
+
+
+
+
