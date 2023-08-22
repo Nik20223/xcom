@@ -1,4 +1,4 @@
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,6 +25,7 @@ class Printer_page(Base):
     continue_button = "//span[@class='btn btn-default btn-buy btn-sm'][2]"
     checkout_button = "//a[@class='checkout']"
     fio_window = "//input[@name='ORDER_PROP_1']"
+    mail_window = "//input[@name='ORDER_PROP_2']"
 
 
 
@@ -45,6 +46,8 @@ class Printer_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.checkout_button)))
     def get_fio_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.fio_window)))
+    def get_mail_window(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.mail_window)))
     # def get_password(self):
     #     return self.driver.find_element(By.XPATH, self.password)
     # def get_city_button(self):
@@ -86,3 +89,7 @@ class Printer_page(Base):
     def fio_send(self):
         self.get_fio_window().clear()
         self.get_fio_window().send_keys('Турапин Никита Владимирович')
+    def mail_send(self):
+        self.get_mail_window().clear()
+        self.get_mail_window().send_keys('qa@mail.ru')
+        self.get_mail_window().send_keys(Keys.RETURN)
