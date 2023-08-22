@@ -84,4 +84,5 @@ class Printer_page(Base):
         self.get_ckeckout_button().click()
 
     def fio_send(self):
-        self.fio_window().send_keys('Турапин Никита Владимирович')
+        self.get_fio_window().clear()
+        self.get_fio_window().send_keys('Турапин Никита Владимирович')
