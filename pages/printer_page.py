@@ -26,6 +26,7 @@ class Printer_page(Base):
     checkout_button = "//a[@class='checkout']"
     fio_window = "//input[@name='ORDER_PROP_1']"
     mail_window = "//input[@name='ORDER_PROP_2']"
+    phone_window = "//input[@name='ORDER_PROP_3']"
 
 
 
@@ -48,6 +49,8 @@ class Printer_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.fio_window)))
     def get_mail_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.mail_window)))
+    def get_phone_window(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.phone_window)))
     # def get_password(self):
     #     return self.driver.find_element(By.XPATH, self.password)
     # def get_city_button(self):
@@ -91,5 +94,9 @@ class Printer_page(Base):
         self.get_fio_window().send_keys('Турапин Никита Владимирович')
     def mail_send(self):
         self.get_mail_window().clear()
-        self.get_mail_window().send_keys('qa@mail.ru')
+        self.get_mail_window().send_keys('555@tih.ru')
         self.get_mail_window().send_keys(Keys.RETURN)
+    def phone_send(self):
+        self.get_phone_window().clear()
+        self.get_phone_window().send_keys('861' + '9674443')
+        self.get_phone_window().send_keys(Keys.RETURN)
