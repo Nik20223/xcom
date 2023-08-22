@@ -20,7 +20,11 @@ class Printer_page(Base):
     # catalog_button = "//div[contains(@class,'button_clear white_on_transparent')]"
     printers_and_chpu_button = "//a[@href='/catalog/stanki_s_chpu_i_3d_printery/']"
     printer_3d_button = "//li[@id='bx_1847241719_283']"
-    printer_basket = "//a[@id='bx_3966226736_16497_c80764dfaf26ca80162484593ec7c29b_buy_link']"
+    printer_basket = "//div[@id='bx_3966226736_16497_c80764dfaf26ca80162484593ec7c29b_basket_actions']"
+    sort_button = "//a[@href='/catalog/3d_printery/?sort=low&order=asc']"
+    continue_button = "//span[@class='btn btn-default btn-buy btn-sm'][2]"
+    checkout_button = "//a[@class='checkout']"
+    fio_window = "//input[@name='ORDER_PROP_1']"
 
 
 
@@ -31,11 +35,16 @@ class Printer_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.printers_and_chpu_button)))
     def get_printer_href(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.printer_3d_button)))
-    def get_printer_name(self):
+    def get_printer_basket(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.printer_basket)))
-    # # def get_password(self):
-    # #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password)))
-    #
+    def get_sort_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.sort_button)))
+    def get_continue_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.continue_button)))
+    def get_ckeckout_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.checkout_button)))
+    def get_fio_window(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.fio_window)))
     # def get_password(self):
     #     return self.driver.find_element(By.XPATH, self.password)
     # def get_city_button(self):
@@ -61,8 +70,18 @@ class Printer_page(Base):
         self.get_printer_href().click()
     # def password_send(self):
     #     self.get_password().send_keys('nikita'+'qa')
-    # def printer_basket_click(self):
-    #     self.get_printer_href().click()
+    def printer_basket_click(self):
+        self.get_printer_basket().click()
     # def printers_chpu_insight(self):
     #     self.action.move_to_element(self.get_printers_href())
     # #
+    def sort_click(self):
+        self.get_sort_button().click()
+
+    def continue_click(self):
+        self.get_continue_button().click()
+    def checkout_click(self):
+        self.get_ckeckout_button().click()
+
+    def fio_send(self):
+        self.fio_window().send_keys('Турапин Никита Владимирович')

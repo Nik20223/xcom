@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -18,6 +19,8 @@ base_url = 'https://supereyes.ru/'
 driver.get(base_url)
 driver.maximize_window()
 tool = Main_page(driver)
+action = ActionChains(driver)
+action.move_by_offset(1800, 900).click().perform()
 tool.login_window_click()
 tool = Login_page(driver)
 tool.user_name_send()
@@ -27,10 +30,17 @@ tool.login_click()
 # print("login send")
 tool = Printer_page(driver)
 tool.printers_click()
-# time.sleep(2)
+time.sleep(2)
 tool.printer_click()
-# time.sleep(2)
-# tool.printer_basket_click()
+time.sleep(2)
+tool.sort_click()
+time.sleep(2)
+tool.printer_basket_click()
+time.sleep(2)
+# driver.get(base_url)
+
+tool.checkout_click()
+tool.fio_send()
 # tool.printers_chpu_insight()
 # tool.password_window()
 # print("Click password")
