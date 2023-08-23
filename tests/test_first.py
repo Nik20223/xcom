@@ -16,7 +16,7 @@ driver.get(base_url)
 driver.maximize_window()
 @pytest.fixture()
 def set_up():
-    print("Open browser")
+    print("My first test")
 def test_1(set_up):
     tool = Main_page(driver)
     print("Open main page")
@@ -24,12 +24,13 @@ def test_1(set_up):
     print(("Click login window"))
 def test_2(set_up):
     tool = Login_page(driver)
-    tool.user_name_send()
+    tool.user_name_send()>
     print("Send username")
     tool.password_send()
     print("Send password")
     tool.login_click()
     print("Click login button")
+    tool.get_login_name_text()
     tool = Printer_page(driver)
     tool.printers_click()
     tool.printer_click()
@@ -42,6 +43,7 @@ def test_2(set_up):
     tool.address_send()
     tool.screenshot()
 
+# driver.quit()
 
 
 
