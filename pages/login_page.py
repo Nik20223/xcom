@@ -43,6 +43,8 @@ class Login_page(Base):
 
     def password_send(self):
         self.get_password().send_keys('nikita'+'qa')
+
+
     # Methods
 
     def get_login_name_text(self):
