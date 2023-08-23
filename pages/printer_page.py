@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,13 +13,7 @@ class Printer_page(Base):
         self.driver = driver
 
     # Locators
-    # login_window = "(//a[@role='button'])[1]"
-    # user_name = "(//div[@class='input-material__input-wrapper']//input)[2]"
-    # password = "(//input[@class='input-material__input-user-agent input-material__input'])[2]"
-    # city_button = "//span[@class='site_header__city_selector_text']"
-    # city_window = "//input[@name = 'search_city']"
-    # login_button = "//input[@id = 'submitLogin']"
-    # catalog_button = "//div[contains(@class,'button_clear white_on_transparent')]"
+
     printers_and_chpu_button = "//a[@href='/catalog/stanki_s_chpu_i_3d_printery/']"
     printer_3d_button = "//li[@id='bx_1847241719_283']"
     printer_basket = "//div[@id='bx_3966226736_16497_c80764dfaf26ca80162484593ec7c29b_basket_actions']"
@@ -27,6 +23,7 @@ class Printer_page(Base):
     fio_window = "//input[@name='ORDER_PROP_1']"
     mail_window = "//input[@name='ORDER_PROP_2']"
     phone_window = "//input[@name='ORDER_PROP_3']"
+    address_window = "//textarea[@name='ORDER_PROP_7']"
 
 
 
@@ -51,36 +48,22 @@ class Printer_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.mail_window)))
     def get_phone_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.phone_window)))
-    # def get_password(self):
-    #     return self.driver.find_element(By.XPATH, self.password)
-    # def get_city_button(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_button)))
-    # def get_login_button(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
-    # def get_catalog_button(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.catalog_button)))
-    # def get_asessories_button(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.assesories_button)))
-    # def get_city_window(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.city_window)))
-    #
+    def get_address_window(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.address_window)))
+
 
     # Actions
-    # action = ActionChains(Base)
+
 
     def printers_click(self):
         self.get_printers_href().click()
-    # def user_name_send(self):
-    #     self.get_user_name().send_keys('sdfsdf@tih.ru')
+
     def printer_click(self):
         self.get_printer_href().click()
-    # def password_send(self):
-    #     self.get_password().send_keys('nikita'+'qa')
+
     def printer_basket_click(self):
         self.get_printer_basket().click()
-    # def printers_chpu_insight(self):
-    #     self.action.move_to_element(self.get_printers_href())
-    # #
+
     def sort_click(self):
         self.get_sort_button().click()
 
@@ -98,5 +81,20 @@ class Printer_page(Base):
         self.get_mail_window().send_keys(Keys.RETURN)
     def phone_send(self):
         self.get_phone_window().clear()
-        self.get_phone_window().send_keys('861' + '9674443')
+        self.get_phone_window().send_keys('8')
+        self.get_phone_window().send_keys('8')
+        self.get_phone_window().send_keys('6')
+        self.get_phone_window().send_keys('1')
+        self.get_phone_window().send_keys('9')
+        self.get_phone_window().send_keys('6')
+        self.get_phone_window().send_keys('7')
+        self.get_phone_window().send_keys('4')
+        self.get_phone_window().send_keys('4')
+        self.get_phone_window().send_keys('4')
+        self.get_phone_window().send_keys('3')
         self.get_phone_window().send_keys(Keys.RETURN)
+    def address_send(self):
+        self.get_address_window().clear()
+        self.get_address_window().send_keys('Тихорецк Мичурина 14')
+        time.sleep(1)
+        self.get_address_window().send_keys(Keys.RETURN)

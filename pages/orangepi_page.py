@@ -27,8 +27,6 @@ class Main_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_window)))
     def get_user_name(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
-    # def get_password(self):
-    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password)))
 
     def get_password(self):
         return self.driver.find_element(By.XPATH, self.password)
