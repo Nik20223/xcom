@@ -11,6 +11,6 @@ class Base():
         print("Assertation OK")
 
     def screenshot(self):
-        now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
-        name_screenshot = 'screenshot' + now_date + '.png'
-        driver.savescreenshot('/home/user/PycharmProjects/xcom/screenshot' + name_screenshot)
+        now_date = datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
+        name_screenshot = 'screenshot_' + now_date + '.png'
+        self.driver.save_screenshot('/home/user/PycharmProjects/xcom/screenshots/' + name_screenshot)

@@ -40,6 +40,7 @@ def test_2(set_up):
     tool.mail_send()
     tool.phone_send()
     tool.address_send()
+    tool.screenshot()
 
 
 
