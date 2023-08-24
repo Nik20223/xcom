@@ -2,15 +2,9 @@ from selenium import webdriver
 from pages.main_page import Main_page
 from pages.login_page import Login_page
 from pages.printer_page import Printer_page
-from selenium.webdriver.chrome.service import Service
 import pytest
 
-
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)
-
-service = Service(executable_path='/home/user/PycharmProjects/xcom/utilities/chromedriver')
-driver = webdriver.Chrome(options=options, service=service)
+driver = webdriver.Chrome()
 base_url = 'https://supereyes.ru/'
 driver.get(base_url)
 driver.maximize_window()
@@ -54,7 +48,7 @@ def test_3(set_up):
     tool.screenshot()
     print("Make screenshot")
 
-# driver.quit()
+
 
 
 
