@@ -8,9 +8,6 @@ from base.base_class import Base
 
 class Printer_page(Base):
     url = 'https://supereyes.ru/'
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
 

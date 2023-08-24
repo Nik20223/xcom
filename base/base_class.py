@@ -13,4 +13,4 @@ class Base():
     def screenshot(self):
         now_date = datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
         name_screenshot = 'screenshot_' + now_date + '.png'
-        self.driver.save_screenshot('/home/user/PycharmProjects/xcom/screenshots/' + name_screenshot)
+        self.driver.save_screenshot('/screenshots/' + name_screenshot)
