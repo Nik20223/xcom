@@ -6,8 +6,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
 
+myname = 'Турапин Никита Владимирович'
+mymail = '555@tih.ru'
+myphonenumber = '8619674443'
+myaddress = 'Тихорецк Мичурина 14'
+
+
 class Printer_page(Base):
-    url = 'https://supereyes.ru/'
+    url = 'https://supereyes.ru/catalog/3d_printery/'
 
     # Locators
 
@@ -24,7 +30,6 @@ class Printer_page(Base):
 
 
 
-
     # Getters
 
     def get_printers_href(self):
@@ -37,7 +42,7 @@ class Printer_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.sort_button)))
     def get_continue_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.continue_button)))
-    def get_ckeckout_button(self):
+    def get_checkout_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.checkout_button)))
     def get_fio_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.fio_window)))
@@ -65,33 +70,23 @@ class Printer_page(Base):
     def continue_click(self):
         self.get_continue_button().click()
     def checkout_click(self):
-        self.get_ckeckout_button().click()
+        self.get_checkout_button().click()
         print("Checkout click")
-
+    ### Sending person data to form ###
     def data_send(self):
         self.get_fio_window().clear()
-        self.get_fio_window().send_keys('Турапин Никита Владимирович')
+        self.get_fio_window().send_keys(myname)
         print("Send fio")
         self.get_mail_window().clear()
-        self.get_mail_window().send_keys('555@tih.ru')
+        self.get_mail_window().send_keys(mymail)
         self.get_mail_window().send_keys(Keys.RETURN)
         print("Send mail")
         self.get_phone_window().clear()
-        self.get_phone_window().send_keys('8')
-        self.get_phone_window().send_keys('8')
-        self.get_phone_window().send_keys('6')
-        self.get_phone_window().send_keys('1')
-        self.get_phone_window().send_keys('9')
-        self.get_phone_window().send_keys('6')
-        self.get_phone_window().send_keys('7')
-        self.get_phone_window().send_keys('4')
-        self.get_phone_window().send_keys('4')
-        self.get_phone_window().send_keys('4')
-        self.get_phone_window().send_keys('3')
+        self.get_phone_window().send_keys(myphonenumber)
         self.get_phone_window().send_keys(Keys.RETURN)
         print("Send phone number")
         self.get_address_window().clear()
-        self.get_address_window().send_keys('Тихорецк Мичурина 14')
+        self.get_address_window().send_keys(myaddress)
         time.sleep(1)
         self.get_address_window().send_keys(Keys.RETURN)
         print("Select address")

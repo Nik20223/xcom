@@ -22,4 +22,4 @@ def test_smoke_testing(set_up):
     pp.checkout_click()
     pp.data_send()
     pp.screenshot()
-    pp = Printer_page(driver)
+
