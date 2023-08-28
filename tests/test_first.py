@@ -13,19 +13,12 @@ print("Open main page")
 def set_up():
     print("My first test")
 def test_1(set_up):
-    tool = Main_page(driver)
-    tool.login_window_click()
-    tool = Login_page(driver)
-    tool.login_click()
-    tool = Printer_page(driver)
-    tool.printer_choose()
-    tool.checkout_click()
-    tool.data_send()
-    tool.screenshot()
-
-
-
-
-
-
-
+    mp = Main_page(driver)
+    mp.login_window_click()
+    lp = Login_page(driver)
+    lp.login_click()
+    pp = Printer_page(driver)
+    pp.printer_choose()
+    pp.checkout_click()
+    pp.data_send()
+    pp.screenshot()
