@@ -22,7 +22,7 @@ class Main_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_window)))
 
     # Actions
-
+    ### Open login window ###
     def login_window_click(self):
         self.get_login_window().click()
         print(("Click login window"))

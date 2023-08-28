@@ -35,7 +35,7 @@ class Login_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_name)))
 
     # Actions
-
+    ### Authorisation by sending username and password ###
     def login_click(self):
 
         self.get_user_name().send_keys('niktih')
@@ -44,10 +44,8 @@ class Login_page(Base):
         print("Send password")
         self.get_login_button().click()
         print("Click login button")
-
-
-
-    # Methods
-
-    def get_login_name_text(self):
         self.assert_word(self.get_login_name(), myname)
+        print("Assert login name")
+
+
+
