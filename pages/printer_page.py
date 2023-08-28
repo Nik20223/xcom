@@ -8,8 +8,8 @@ from base.base_class import Base
 
 myname = 'Турапин Никита Владимирович'
 mymail = '555@tih.ru'
-myphonenumber = '8619674443'
-myaddress = 'Тихорецк Мичурина 14'
+myphonenumber = '88619674443'
+myaddress = 'Тихорецк ул Мичурина 14'
 
 
 class Printer_page(Base):
@@ -69,6 +69,10 @@ class Printer_page(Base):
 
     def continue_click(self):
         self.get_continue_button().click()
+    def sending_phone(self):
+        for i in myphonenumber:
+            self.get_phone_window().send_keys(i)
+        return
     def checkout_click(self):
         self.get_checkout_button().click()
         print("Checkout click")
@@ -81,9 +85,14 @@ class Printer_page(Base):
         self.get_mail_window().send_keys(mymail)
         self.get_mail_window().send_keys(Keys.RETURN)
         print("Send mail")
-        self.get_phone_window().clear()
-        self.get_phone_window().send_keys(myphonenumber)
-        self.get_phone_window().send_keys(Keys.RETURN)
+        # self.get_phone_window().clear()
+        # self.get_phone_window().send_keys(Keys.RETURN)
+        # self.get_phone_window().send_keys(myphonenumber)
+        self.sending_phone()
+        # self.actio=ActionChains(self.driver)
+        # # self.actio.click(self.get_phone_window())
+        # self.get_phone_window().send_keys(myphonenumber)
+        # self.actio.perform()
         print("Send phone number")
         self.get_address_window().clear()
         self.get_address_window().send_keys(myaddress)
