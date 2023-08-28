@@ -51,7 +51,7 @@ class Printer_page(Base):
 
     # Actions
 
-
+    ### Choosing printer ###
     def printer_choose(self):
         self.get_printers_href().click()
         print("Printers and chpu click")

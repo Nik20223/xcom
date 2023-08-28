@@ -5,9 +5,6 @@ from base.base_class import Base
 myname = "Никита"
 class Login_page(Base):
     url = 'https://supereyes.ru/login/?login=yes&backurl=%2F'
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
 
@@ -37,7 +34,6 @@ class Login_page(Base):
     # Actions
     ### Authorisation by sending username and password ###
     def login_click(self):
-
         self.get_user_name().send_keys('niktih')
         print("Send username")
         self.get_password().send_keys('nikita' + 'qa')
@@ -45,7 +41,3 @@ class Login_page(Base):
         self.get_login_button().click()
         print("Click login button")
         self.assert_word(self.get_login_name(), myname)
-        print("Assert login name")
-
-
-
