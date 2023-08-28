@@ -54,28 +54,35 @@ class Printer_page(Base):
 
     def printers_click(self):
         self.get_printers_href().click()
+        print("Printers and chpu click")
 
     def printer_click(self):
         self.get_printer_href().click()
+        print("3d printers click")
 
     def printer_basket_click(self):
         self.get_printer_basket().click()
+        print("Add printer to basket")
 
     def sort_click(self):
         self.get_sort_button().click()
+        print("Sort by low price click")
 
     def continue_click(self):
         self.get_continue_button().click()
     def checkout_click(self):
         self.get_ckeckout_button().click()
+        print("Checkout click")
 
     def fio_send(self):
         self.get_fio_window().clear()
         self.get_fio_window().send_keys('Турапин Никита Владимирович')
+        print("Send fio")
     def mail_send(self):
         self.get_mail_window().clear()
         self.get_mail_window().send_keys('555@tih.ru')
         self.get_mail_window().send_keys(Keys.RETURN)
+        print("Send mail")
     def phone_send(self):
         self.get_phone_window().clear()
         self.get_phone_window().send_keys('8')
@@ -90,8 +97,10 @@ class Printer_page(Base):
         self.get_phone_window().send_keys('4')
         self.get_phone_window().send_keys('3')
         self.get_phone_window().send_keys(Keys.RETURN)
+        print("Send phone number")
     def address_send(self):
         self.get_address_window().clear()
         self.get_address_window().send_keys('Тихорецк Мичурина 14')
         time.sleep(1)
         self.get_address_window().send_keys(Keys.RETURN)
+        print("Select address")

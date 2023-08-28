@@ -17,6 +17,7 @@ class Main_page(Base):
 
     # Getters
 
+
     def get_login_window(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_window)))
 
@@ -24,4 +25,5 @@ class Main_page(Base):
 
     def login_window_click(self):
         self.get_login_window().click()
+        print(("Click login window"))
 

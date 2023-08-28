@@ -37,12 +37,14 @@ class Login_page(Base):
     # Actions
 
     def login_click(self):
-        self.get_login_button().click()
-    def user_name_send(self):
-        self.get_user_name().send_keys('niktih')
 
-    def password_send(self):
-        self.get_password().send_keys('nikita'+'qa')
+        self.get_user_name().send_keys('niktih')
+        print("Send username")
+        self.get_password().send_keys('nikita' + 'qa')
+        print("Send password")
+        self.get_login_button().click()
+        print("Click login button")
+
 
 
     # Methods

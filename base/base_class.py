@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 class Base():
@@ -7,9 +8,11 @@ class Base():
     def assert_word(self, word, result):
         value_word = word.text
         assert value_word == result
-        print("Assertation OK")
+        print("Assertation True")
 
     def screenshot(self):
         now_date = datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
         name_screenshot = 'screenshot_' + now_date + '.png'
-        self.driver.save_screenshot('/screenshots/' + name_screenshot)
+        path = os.getcwd()
+        self.driver.save_screenshot(os.path.abspath(os.path.join(path, os.pardir)) + '/screenshots/' + name_screenshot)
+        print("Make screenshot to folder Screenshots")
