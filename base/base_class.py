@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 
 class Base():
@@ -18,4 +19,5 @@ class Base():
         name_screenshot = 'screenshot_' + now_date + '.png'
         path = os.getcwd()
         self.driver.save_screenshot(os.path.abspath(os.path.join(path, os.pardir)) + '/screenshots/' + name_screenshot)
+        time.sleep(1)
         print("Make screenshot to folder Screenshots")
